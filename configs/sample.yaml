@@ -1,0 +1,14 @@
+exp_name: 
+  learning_rate: 0.0003 
+  buffer_size: 1000000 
+  learning_starts: 1000 
+  batch_size: 128 
+  tau: 0.05 
+  gamma: 0.99 
+  train_freq: 10 
+  gradient_steps: 10 
+  target_update_interval: 5 
+  target_entropy: -0.2 
+  first_hidden_size: 64 
+  second_hidden_size: 64 
+  seed: 10 
