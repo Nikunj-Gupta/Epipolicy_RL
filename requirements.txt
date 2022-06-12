@@ -7,3 +7,4 @@ sympy==1.8
 gym
 torch
 pybullet
+pyyaml
