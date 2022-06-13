@@ -4,7 +4,7 @@ pydantic
 dill
 numba
 sympy
-gym
+gym==0.21
 torch
 pybullet
 pyglet
@@ -12,3 +12,4 @@ pyyaml
 numpy
 scipy
 stable-baselines3
+tensorboard
