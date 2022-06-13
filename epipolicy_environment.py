@@ -1,7 +1,7 @@
 PERIOD = 7 
 
 # Env
-import gym
+import gym, numpy as np 
 from gym import spaces
 from epipolicy.core.epidemic import construct_epidemic
 from epipolicy.obj.act import construct_act
@@ -32,7 +32,7 @@ class EpiEnv(gym.Env):
         # Define action and observation space
         # They must be gym.spaces objects
         # Example when using discrete actions:
-        self.action_space = spaces.Box(low=0, high=1, shape=(action_count,), dtype=np.float64)
+        self.action_space = spaces.Box(low=0, high=1, shape=(action_count,), dtype=np.float32)
         # Example for using image as input:
         self.observation_space = spaces.Box(low=0, high=total_population, shape=(obs_count,), dtype=np.float64)
 
