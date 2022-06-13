@@ -7,8 +7,8 @@
 #SBATCH --job-name=exp_6
 #SBATCH --output=exp_6.out
 
+source ../venvs/epipolicy/bin/activate
+
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
-
-source ../venvs/epipolicy/bin/activate
 time python3 runner.py  --exp exp_6 --config configs/config.yaml --scenario jsons/SIRV_A.json
