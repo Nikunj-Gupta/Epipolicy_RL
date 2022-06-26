@@ -4,11 +4,11 @@
 #SBATCH --time=2:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=exp_16
-#SBATCH --output=exp_16.out
+#SBATCH --job-name=exp_19
+#SBATCH --output=exp_19.out
 
 source ../venvs/epipolicy/bin/activate
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
-time python3 runner.py  --exp exp_16 --config configs/config.yaml --scenario jsons/SIRV_A.json --algo sac
+time python3 runner.py  --exp exp_19 --config configs/config.yaml --scenario jsons/SIRV_A.json --algo sac
