@@ -5,7 +5,7 @@ exps = pd.read_csv('configs/exps.csv')
 
 default={
     'learning_rate':[3e-3, 3e-4, 3e-5],
-    'buffer_size':[int(1e6), int(1e7), int(1e8)],
+    'buffer_size':[1000000, 10000000, 100000000],
     'learning_starts':[1000, 10000, 100000],
     'batch_size':[128, 256, 512],
     'tau':[0.05, 0.1, 0.2],
@@ -30,6 +30,8 @@ for exp in config:
         for key in config[exp]: 
             if config[exp][key] == 'X': 
                 config[exp][key] = random.choice(default[key]) 
+
+
 
 with open('configs/config_new.yaml', 'w') as file:
     yaml.dump(config, file) 
