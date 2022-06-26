@@ -11,7 +11,7 @@ from stable_baselines3 import SAC, PPO
 from stable_baselines3.common.callbacks import CheckpointCallback 
 
 
-TOTAL_TIMESTEPS = 25_000
+TOTAL_TIMESTEPS = 100_000
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 

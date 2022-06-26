@@ -31,7 +31,7 @@ for scenario in ['SIRV_A']:
         command = ' '.join([
             command, 
             '--exp', exp, 
-            "--config configs/config.yaml", 
+            "--config", config_file, 
             '--scenario', 'jsons/'+scenario+'.json', 
             '--algo sac'
         ]) 
