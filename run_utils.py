@@ -13,7 +13,7 @@ fixed_text = "#!/bin/bash\n"\
              "#SBATCH --gres=gpu:1\n"
 
 
-config_file = "configs/config.yaml"
+config_file = "configs/config_new.yaml"
 
 with open(config_file, "r") as stream:
         try: config = yaml.safe_load(stream) 
@@ -24,15 +24,16 @@ with open(config_file, "r") as stream:
 for scenario in ['SIRV_A']: 
     for exp in config: 
         command = fixed_text + "#SBATCH --job-name="+exp+"\n#SBATCH --output="+exp+".out\n"
-        command += "\nmodule load python/intel/3.8.6\n"\
-                    "module load openmpi/intel/4.0.5\n"\
-                    "\nsource ./venv/bin/activate\n"\
-                    "time python3 runner.py " 
+        command += "\nsource ../venvs/epipolicy/bin/activate\n"\
+            "\nmodule load python/intel/3.8.6\n"\
+            "module load openmpi/intel/4.0.5\n"\
+            "time python3 runner.py " 
         command = ' '.join([
             command, 
             '--exp', exp, 
             "--config configs/config.yaml", 
-            '--scenario', 'jsons/'+scenario+'.json'
+            '--scenario', 'jsons/'+scenario+'.json', 
+            '--algo sac'
         ]) 
         # print(command) 
         log_dir = Path(dumpdir)
