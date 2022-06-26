@@ -1,5 +1,6 @@
 all: 
 	clear 
+	python3 runner.py  --exp exp_10 --config configs/config_new.yaml --scenario jsons/SIRV_A.json --algo sac 
 
 build_runs: 
 	python3 run_utils.py 

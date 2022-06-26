@@ -66,7 +66,7 @@ if args.algo == 'sac':
         policy="MlpPolicy", 
         env=env, 
         learning_rate=float(config['learning_rate']), 
-        buffer_size=int(config['buffer_size']), 
+        buffer_size=int(float(config['buffer_size'])), 
         learning_starts=int(config['learning_starts']), 
         batch_size=int(config['batch_size']), 
         tau=float(config['tau']), 
