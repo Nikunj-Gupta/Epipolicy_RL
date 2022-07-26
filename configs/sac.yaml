@@ -1,4 +1,4 @@
-sac_rs_15:
+sac_rs_1:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -7,13 +7,13 @@ sac_rs_15:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 15
+  seed: 1
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_3:
+sac_rs_19:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -22,13 +22,13 @@ sac_rs_3:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 3
+  seed: 19
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_34:
+sac_rs_28:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -37,13 +37,13 @@ sac_rs_34:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 34
+  seed: 28
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_4:
+sac_rs_41:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -52,13 +52,13 @@ sac_rs_4:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 4
+  seed: 41
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_50:
+sac_rs_59:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -67,13 +67,13 @@ sac_rs_50:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 50
+  seed: 59
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_58:
+sac_rs_60:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -82,13 +82,13 @@ sac_rs_58:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 58
+  seed: 60
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_81:
+sac_rs_71:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -97,13 +97,13 @@ sac_rs_81:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 81
+  seed: 71
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_82:
+sac_rs_72:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -112,13 +112,13 @@ sac_rs_82:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 82
+  seed: 72
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_9:
+sac_rs_92:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -127,13 +127,13 @@ sac_rs_9:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 9
+  seed: 92
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10
-sac_rs_95:
+sac_rs_98:
   batch_size: '256'
   buffer_size: 100000000
   first_hidden_size: 256
@@ -142,9 +142,9 @@ sac_rs_95:
   learning_rate: 0.003
   learning_starts: '10000'
   second_hidden_size: 256
-  seed: 95
+  seed: 98
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
-  total_timesteps: 1000
+  total_timesteps: 100000
   train_freq: 10

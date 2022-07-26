@@ -14,7 +14,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 default_sac = {
-    'total_timesteps':1000,
+    'total_timesteps':100000,
     'batch_size': '256',
     'buffer_size': 100000000,
     'first_hidden_size': 256,
@@ -30,7 +30,7 @@ default_sac = {
     'train_freq': 10
 } 
 default_ppo = {
-    'total_timesteps':1000,
+    'total_timesteps':100000,
     'batch_size': 8 ,
     'n_steps': 128 ,
     'gamma': 0.999 ,
@@ -50,7 +50,7 @@ default = dict(default_sac) if args.algo == 'sac' else dict(default_ppo)
 
 config = {} 
 
-for seed in [random.randint(1, 100) for _ in range(10)]: 
+for seed in random.sample(range(1, 100), 10): 
     exp_name = args.algo + "_rs_" + str(seed) 
     config[exp_name] = dict(default) 
     config[exp_name]['seed'] = seed 
