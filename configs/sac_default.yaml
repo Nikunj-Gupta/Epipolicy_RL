@@ -1,0 +1,15 @@
+exp_name:
+    batch_size: '256'
+    buffer_size: 100000000
+    first_hidden_size: 256
+    gamma: '0.9'
+    gradient_steps: '100'
+    learning_rate: 3e-3
+    learning_starts: '10000'
+    num: 17
+    second_hidden_size: 256
+    seed: 10
+    target_entropy: -200.0
+    target_update_interval: '1'
+    tau: '0.1'
+    train_freq: 10

@@ -1,6 +1,17 @@
-import os, yaml 
+import os, yaml, argparse
 from pathlib import Path 
 from itertools import count 
+
+parser = argparse.ArgumentParser(description='PyTorch Epipolicy SAC/PPO runs generation') 
+parser.add_argument(
+    '--algo', 
+    # default='sac', 
+    type=str, 
+    required=True,
+    help=' reinforcement learning algorithm'
+) 
+args = parser.parse_args()
+
 
 dumpdir = "runs/" 
 if not os.path.isdir(dumpdir):
@@ -8,12 +19,12 @@ if not os.path.isdir(dumpdir):
 fixed_text = "#!/bin/bash\n"\
              "#SBATCH --nodes=1\n"\
              "#SBATCH --cpus-per-task=16 \n"\
-             "#SBATCH --time=4:00:00\n"\
-             "#SBATCH --mem=40GB\n"\
+             "#SBATCH --time=14:00:00\n"\
+             "#SBATCH --mem=20GB\n"\
             #  "#SBATCH --gres=gpu:1\n"
 
 
-config_file = "configs/config_new.yaml"
+config_file = "configs/sac.yaml" if args.algo == 'sac' else "configs/ppo.yaml"
 
 with open(config_file, "r") as stream:
         try: config = yaml.safe_load(stream) 
@@ -21,7 +32,8 @@ with open(config_file, "r") as stream:
 
 
 
-for scenario in ['SIRV_A']: 
+# for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B']: 
+for scenario in ['COVID_A', 'COVID_B', 'COVID_C']: 
     for exp in config: 
         command = fixed_text + "#SBATCH --job-name="+exp+"\n#SBATCH --output="+exp+".out\n"
         command += "\nsource ../venvs/epipolicy/bin/activate\n"\
@@ -33,7 +45,7 @@ for scenario in ['SIRV_A']:
             '--exp', exp, 
             "--config", config_file, 
             '--scenario', 'jsons/'+scenario+'.json', 
-            '--algo sac'
+            '--algo', args.algo 
         ]) 
         # print(command) 
         log_dir = Path(dumpdir)

@@ -2,13 +2,13 @@ exp_10:
   batch_size: '128'
   buffer_size: 1e8
   first_hidden_size: 1024
-  gamma: 0.9
+  gamma: 0.99
   gradient_steps: '100'
   learning_rate: 3e-4
   learning_starts: '10000'
   num: 10
   second_hidden_size: 1024
-  seed: 12
+  seed: 20
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.2'
@@ -23,7 +23,7 @@ exp_12:
   learning_starts: '10000'
   num: 12
   second_hidden_size: 64
-  seed: 100
+  seed: 90
   target_entropy: -200.0
   target_update_interval: '10'
   tau: '0.05'
@@ -38,10 +38,10 @@ exp_13:
   learning_starts: '100000'
   num: 13
   second_hidden_size: 128
-  seed: 20
+  seed: 90
   target_entropy: -20.0
   target_update_interval: '1'
-  tau: 0.1
+  tau: 0.05
   train_freq: 1
 exp_15:
   batch_size: '128'
@@ -53,13 +53,13 @@ exp_15:
   learning_starts: '10000'
   num: 15
   second_hidden_size: 512
-  seed: 12
+  seed: 20
   target_entropy: -2.0
   target_update_interval: '10'
-  tau: 0.05
+  tau: 0.2
   train_freq: 100
 exp_16:
-  batch_size: 512
+  batch_size: 256
   buffer_size: 1e7
   first_hidden_size: 512
   gamma: '0.95'
@@ -68,7 +68,7 @@ exp_16:
   learning_starts: '10000'
   num: 16
   second_hidden_size: 256
-  seed: 20
+  seed: 10
   target_entropy: -20.0
   target_update_interval: '5'
   tau: '0.2'
@@ -83,7 +83,7 @@ exp_17:
   learning_starts: '10000'
   num: 17
   second_hidden_size: 256
-  seed: 100
+  seed: 10
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.1'
@@ -98,7 +98,7 @@ exp_18:
   learning_starts: '1000'
   num: 18
   second_hidden_size: 512
-  seed: 12
+  seed: 20
   target_entropy: -200.0
   target_update_interval: '1'
   tau: '0.05'
@@ -113,7 +113,7 @@ exp_19:
   learning_starts: '10000'
   num: 19
   second_hidden_size: 128
-  seed: 12
+  seed: 100
   target_entropy: -2000.0
   target_update_interval: '10'
   tau: '0.05'
@@ -128,7 +128,7 @@ exp_2:
   learning_starts: '1000'
   num: 2
   second_hidden_size: 1024
-  seed: 20
+  seed: 10
   target_entropy: -20.0
   target_update_interval: '10'
   tau: '0.1'
@@ -143,7 +143,7 @@ exp_21:
   learning_starts: '1000'
   num: 21
   second_hidden_size: 64
-  seed: 12
+  seed: 10
   target_entropy: -2000.0
   target_update_interval: '5'
   tau: '0.1'
@@ -158,13 +158,13 @@ exp_22:
   learning_starts: '10000'
   num: 22
   second_hidden_size: 1024
-  seed: 12
+  seed: 90
   target_entropy: -0.2
   target_update_interval: '5'
   tau: '0.2'
   train_freq: 100
 exp_24:
-  batch_size: 256
+  batch_size: 512
   buffer_size: 1e7
   first_hidden_size: 256
   gamma: '0.95'
@@ -173,22 +173,22 @@ exp_24:
   learning_starts: '100000'
   num: 24
   second_hidden_size: 64
-  seed: 100
+  seed: 90
   target_entropy: -0.2
   target_update_interval: '10'
   tau: '0.1'
   train_freq: 100
 exp_26:
   batch_size: '128'
-  buffer_size: 10000000
+  buffer_size: 1000000
   first_hidden_size: 256
   gamma: '0.99'
-  gradient_steps: 1
+  gradient_steps: 100
   learning_rate: 3e-3
   learning_starts: '1000'
   num: 26
   second_hidden_size: 1024
-  seed: 90
+  seed: 100
   target_entropy: -2.0
   target_update_interval: '10'
   tau: '0.2'
@@ -203,7 +203,7 @@ exp_29:
   learning_starts: '100000'
   num: 29
   second_hidden_size: 512
-  seed: 12
+  seed: 100
   target_entropy: -2000.0
   target_update_interval: 1
   tau: 0.05
@@ -218,37 +218,37 @@ exp_3:
   learning_starts: '10000'
   num: 3
   second_hidden_size: 256
-  seed: 100
+  seed: 10
   target_entropy: -2000.0
   target_update_interval: '1'
   tau: '0.2'
   train_freq: 1
 exp_30:
   batch_size: '512'
-  buffer_size: 1000000
+  buffer_size: 100000000
   first_hidden_size: 64
-  gamma: 0.99
-  gradient_steps: 10
-  learning_rate: 0.0003
+  gamma: 0.95
+  gradient_steps: 1
+  learning_rate: 0.003
   learning_starts: '1000'
   num: 30
   second_hidden_size: 128
   seed: 100
   target_entropy: -0.2
-  target_update_interval: 1
+  target_update_interval: 5
   tau: 0.1
   train_freq: 10
 exp_31:
   batch_size: '128'
   buffer_size: 1e6
   first_hidden_size: 256
-  gamma: 0.99
-  gradient_steps: 100
+  gamma: 0.95
+  gradient_steps: 10
   learning_rate: 3e-3
   learning_starts: '1000'
   num: 31
   second_hidden_size: 256
-  seed: 100
+  seed: 90
   target_entropy: -20.0
   target_update_interval: '5'
   tau: '0.2'
@@ -259,68 +259,68 @@ exp_32:
   first_hidden_size: 512
   gamma: '0.95'
   gradient_steps: '100'
-  learning_rate: 0.003
+  learning_rate: 3.0e-05
   learning_starts: '1000'
   num: 32
   second_hidden_size: 512
-  seed: 90
+  seed: 20
   target_entropy: -2.0
   target_update_interval: 1
-  tau: 0.1
+  tau: 0.05
   train_freq: 10000
 exp_33:
   batch_size: '128'
   buffer_size: 1e8
   first_hidden_size: 512
-  gamma: 0.99
+  gamma: 0.95
   gradient_steps: 1
   learning_rate: 3e-5
   learning_starts: '100000'
   num: 33
   second_hidden_size: 256
-  seed: 10
+  seed: 100
   target_entropy: -0.2
   target_update_interval: '1'
-  tau: 0.2
+  tau: 0.05
   train_freq: 1000
 exp_34:
   batch_size: '512'
-  buffer_size: 1000000
+  buffer_size: 10000000
   first_hidden_size: 64
-  gamma: 0.95
-  gradient_steps: 10
+  gamma: 0.9
+  gradient_steps: 1
   learning_rate: 3e-3
   learning_starts: '100000'
   num: 34
   second_hidden_size: 1024
-  seed: 20
+  seed: 10
   target_entropy: -20.0
-  target_update_interval: 1
-  tau: 0.2
+  target_update_interval: 5
+  tau: 0.1
   train_freq: 1000
 exp_35:
   batch_size: 512
-  buffer_size: 1000000
+  buffer_size: 10000000
   first_hidden_size: 64
-  gamma: 0.95
+  gamma: 0.9
   gradient_steps: '1'
-  learning_rate: 0.0003
+  learning_rate: 0.003
   learning_starts: '100000'
   num: 35
   second_hidden_size: 1024
-  seed: 20
+  seed: 100
   target_entropy: -200.0
-  target_update_interval: 5
-  tau: 0.2
+  target_update_interval: 1
+  tau: 0.1
   train_freq: 100
 exp_36:
-  batch_size: 256
+  batch_size: 128
   buffer_size: 1000000
   first_hidden_size: 1024
   gamma: 0.9
   gradient_steps: '10'
   learning_rate: 3.0e-05
-  learning_starts: 10000
+  learning_starts: 1000
   num: 36
   second_hidden_size: 1024
   seed: 100
@@ -329,49 +329,49 @@ exp_36:
   tau: '0.05'
   train_freq: 1
 exp_37:
-  batch_size: 256
-  buffer_size: 10000000
+  batch_size: 128
+  buffer_size: 1000000
   first_hidden_size: 512
   gamma: '0.9'
-  gradient_steps: 100
-  learning_rate: 0.003
-  learning_starts: 100000
+  gradient_steps: 10
+  learning_rate: 0.0003
+  learning_starts: 10000
   num: 37
   second_hidden_size: 64
   seed: 100
   target_entropy: -0.2
-  target_update_interval: 1
-  tau: 0.2
+  target_update_interval: 5
+  tau: 0.1
   train_freq: 1
 exp_38:
-  batch_size: 256
+  batch_size: 128
   buffer_size: 100000000
   first_hidden_size: 512
   gamma: '0.99'
   gradient_steps: 1
-  learning_rate: 3.0e-05
-  learning_starts: 1000
+  learning_rate: 0.003
+  learning_starts: 10000
   num: 38
   second_hidden_size: 128
   seed: 20
   target_entropy: -200.0
-  target_update_interval: 1
-  tau: 0.05
+  target_update_interval: 10
+  tau: 0.1
   train_freq: 10000
 exp_39:
-  batch_size: 128
+  batch_size: 256
   buffer_size: 100000000
   first_hidden_size: 128
   gamma: '0.9'
-  gradient_steps: 1
-  learning_rate: 3.0e-05
-  learning_starts: 100000
+  gradient_steps: 100
+  learning_rate: 0.0003
+  learning_starts: 1000
   num: 39
   second_hidden_size: 512
-  seed: 12
+  seed: 20
   target_entropy: -2000.0
-  target_update_interval: 5
-  tau: 0.05
+  target_update_interval: 10
+  tau: 0.1
   train_freq: 10
 exp_4:
   batch_size: '512'
@@ -389,19 +389,19 @@ exp_4:
   tau: '0.05'
   train_freq: 100
 exp_40:
-  batch_size: 256
-  buffer_size: 1000000
+  batch_size: 512
+  buffer_size: 100000000
   first_hidden_size: 1024
   gamma: '0.95'
   gradient_steps: 1
   learning_rate: 0.0003
-  learning_starts: 1000
+  learning_starts: 100000
   num: 40
   second_hidden_size: 64
-  seed: 90
+  seed: 10
   target_entropy: -2.0
   target_update_interval: 1
-  tau: 0.1
+  tau: 0.05
   train_freq: 1000
 exp_5:
   batch_size: '512'
@@ -443,7 +443,7 @@ exp_7:
   learning_starts: '100000'
   num: 7
   second_hidden_size: 512
-  seed: 100
+  seed: 20
   target_entropy: -20.0
   target_update_interval: '5'
   tau: '0.2'
@@ -458,7 +458,7 @@ exp_8:
   learning_starts: '100000'
   num: 8
   second_hidden_size: 128
-  seed: 100
+  seed: 10
   target_entropy: -2.0
   target_update_interval: '5'
   tau: '0.2'

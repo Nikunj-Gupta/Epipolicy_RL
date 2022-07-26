@@ -1,0 +1,15 @@
+exp_name:
+    total_timesteps: 30000
+    batch_size: 8 
+    n_steps: 128 
+    gamma: 0.999 
+    learning_rate: 2.4224480786987734e-05 
+    ent_coef: 5.335150728756469e-08 
+    clip_range: 0.2 
+    n_epochs: 1 
+    gae_lambda: 0.99 
+    max_grad_norm: 2 
+    vf_coef: 0.9741699902198256 
+    first_hidden_size: 256 
+    second_hidden_size: 256 
+    seed: 10 

@@ -11,9 +11,7 @@ from stable_baselines3 import SAC, PPO
 from stable_baselines3.common.callbacks import CheckpointCallback 
 
 
-TOTAL_TIMESTEPS = 100_000
-
-parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
+parser = argparse.ArgumentParser(description='PyTorch Epipolicy SAC/PPO Training')
 
 parser.add_argument(
     '--exp', 
@@ -99,17 +97,17 @@ elif args.algo == "ppo":
         policy="MlpPolicy", 
         env=env, 
         learning_rate=config['learning_rate'], 
-        n_steps=2048, 
-        batch_size=64, 
-        n_epochs=10, 
-        gamma=0.99, 
-        gae_lambda=0.95, 
-        clip_range=0.2, 
+        n_steps=config['n_steps'], 
+        batch_size=config['batch_size'], 
+        n_epochs=config['n_steps'], 
+        gamma=config['gamma'], 
+        gae_lambda=config['gae_lambda'], 
+        clip_range=config['clip_range'], 
         clip_range_vf=None, 
         normalize_advantage=True, 
-        ent_coef=0.0, 
-        vf_coef=0.5, 
-        max_grad_norm=0.5, 
+        ent_coef=config['ent_coef'], 
+        vf_coef=config['vf_coef'], 
+        max_grad_norm=config['max_grad_norm'], 
         use_sde=False, 
         sde_sample_freq=-1, 
         target_kl=None, 
@@ -119,17 +117,17 @@ elif args.algo == "ppo":
             activation_fn=torch.nn.ReLU, 
             net_arch=[int(config['first_hidden_size']), int(config['second_hidden_size'])] 
         ), 
-        verbose=0, 
-        seed=None, 
+        verbose=1, 
+        seed=config['seed'], 
         device='auto', 
         _init_setup_model=True
     )
 
 model.learn(
-    total_timesteps=TOTAL_TIMESTEPS, 
+    total_timesteps=config['total_timesteps'], 
     log_interval=4,
     callback=CheckpointCallback(
-        save_freq=TOTAL_TIMESTEPS/10, 
+        save_freq=config['total_timesteps']/10, 
         save_path='/'.join([
             'summaries', 
             args.scenario.split('/')[-1].split('.')[0], 
