@@ -23,7 +23,7 @@ STORE_EVERYTHING_SIZE_GUIDANCE = {
 
 
 SMOOTH = 10 
-CUT = 175
+CUT = 100
 MEAN_CUT = -10 
 
 def get_values(filename, scalar="Episodic_Reward"): 
@@ -64,25 +64,30 @@ def merge(logs):
 
 
 def plot(log_dir): 
+    fig, ax = plt.subplots()
+    fig.canvas.draw()
+
     for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B', 'COVID_A', 'COVID_B', 'COVID_C']: 
         for algo in ['ppo', 'sac']: 
             logs = glob.glob(os.path.join(log_dir, scenario, "*"+algo+"*", '*/arr.npy'), recursive=True) 
             val_means, val_stds, mean_rew, mean_std = merge(logs) 
-            print(scenario, algo, mean_rew, mean_std) 
+            print(scenario, algo, "mean: ", mean_rew, "mean_std: ", mean_std) 
             val_means = smooth(val_means, box_pts=SMOOTH)
             val_stds = smooth(val_stds, box_pts=SMOOTH)
-        #     plt.plot(val_means[SMOOTH:], label=algo)
-        #     plt.fill_between(np.arange(1, len(val_means)+1), 
-        #             val_means - val_stds, 
-        #             val_means + val_stds, 
-        #             alpha=0.2) 
-        #     # break 
-        # plt.title(scenario)
-        # plt.legend() 
-        # plt.show() 
+            plt.plot(val_means[SMOOTH:], label=algo)
+            plt.fill_between(np.arange(1, len(val_means)+1), 
+                    val_means - val_stds, 
+                    val_means + val_stds, 
+                    alpha=0.2) 
+            # break 
+        ax.set_xticklabels([int(i*500) for i in ax.get_xticks().tolist()[1:]]) 
+        plt.xlim([0, CUT])
+        plt.title(scenario)
+        plt.legend() 
+        plt.show() 
 
             
 if __name__ == '__main__': 
-    # save_npy('./summaries') 
+    # save_npy('./summaries_1') 
     
-    plot('./summaries') 
+    plot('./summaries_1') 
