@@ -29,6 +29,23 @@ default_sac = {
     'tau': '0.1',
     'train_freq': 10
 } 
+default_sac2 = {
+    'total_timesteps':100000,
+    'batch_size': '1024',
+    'buffer_size': 1000000,
+    'first_hidden_size': 512,
+    'gamma': '0.98',
+    'gradient_steps': '100',
+    'learning_rate': 0.002741060127299227,
+    'learning_starts': '1000',
+    'second_hidden_size': 512,
+    'seed': 10,
+    'target_entropy': -200.0,
+    'target_update_interval': '1',
+    'tau': '0.08',
+    'train_freq': 64
+} 
+
 default_ppo = {
     'total_timesteps':100000,
     'batch_size': 8 ,
@@ -46,12 +63,12 @@ default_ppo = {
     'seed': 10
 } 
 
-default = dict(default_sac) if args.algo == 'sac' else dict(default_ppo)
+default = dict(default_sac2) if args.algo == 'sac' else dict(default_ppo)
 
 config = {} 
 
 for seed in random.sample(range(1, 1000), 10): 
-    exp_name = args.algo + "_rs_" + str(seed) 
+    exp_name = args.algo + "_new_rs_" + str(seed) 
     config[exp_name] = dict(default) 
     config[exp_name]['seed'] = seed 
 

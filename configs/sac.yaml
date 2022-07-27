@@ -1,150 +1,150 @@
-sac_rs_411:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+sac_new_rs_20:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 411
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 20
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_437:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_217:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 437
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 217
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_476:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_286:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 476
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 286
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_496:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_290:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 496
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 290
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_597:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_415:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 597
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 415
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_700:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_461:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 700
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 461
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_711:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_677:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 711
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 677
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_733:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_719:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 733
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 719
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_906:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_905:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 906
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 905
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
-sac_rs_908:
-  batch_size: '256'
-  buffer_size: 100000000
-  first_hidden_size: 256
-  gamma: '0.9'
+  train_freq: 64
+sac_new_rs_929:
+  batch_size: '1024'
+  buffer_size: 1000000
+  first_hidden_size: 512
+  gamma: '0.98'
   gradient_steps: '100'
-  learning_rate: 0.003
-  learning_starts: '10000'
-  second_hidden_size: 256
-  seed: 908
+  learning_rate: 0.002741060127299227
+  learning_starts: '1000'
+  second_hidden_size: 512
+  seed: 929
   target_entropy: -200.0
   target_update_interval: '1'
-  tau: '0.1'
+  tau: '0.08'
   total_timesteps: 100000
-  train_freq: 10
+  train_freq: 64
