@@ -50,7 +50,7 @@ default = dict(default_sac) if args.algo == 'sac' else dict(default_ppo)
 
 config = {} 
 
-for seed in random.sample(range(1, 100), 10): 
+for seed in random.sample(range(1, 1000), 10): 
     exp_name = args.algo + "_rs_" + str(seed) 
     config[exp_name] = dict(default) 
     config[exp_name]['seed'] = seed 
