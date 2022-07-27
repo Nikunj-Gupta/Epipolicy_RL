@@ -36,3 +36,11 @@ SCENARIOS = SIRV_A.json SIRV_B.json SIR_A.json SIR_B.json COVID_A.json COVID_B.j
 test: 
 	# $(foreach var,$(SCENARIOS),python3 runner.py  --exp ppo_rs_18 --config configs/ppo.yaml --scenario jsons/$(var) --algo ppo;)
 	$(foreach var,$(SCENARIOS),python3 runner.py  --exp sac_rs_4 --config configs/sac.yaml --scenario jsons/$(var) --algo sac;)
+
+
+
+
+
+plot: 
+	clear 
+	python3 plots.py 

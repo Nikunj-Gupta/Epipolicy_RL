@@ -19,7 +19,7 @@ if not os.path.isdir(dumpdir):
 fixed_text = "#!/bin/bash\n"\
              "#SBATCH --nodes=1\n"\
              "#SBATCH --cpus-per-task=16 \n"\
-             "#SBATCH --time=4:00:00\n"\
+             "#SBATCH --time=14:00:00\n"\
              "#SBATCH --mem=20GB\n"\
             #  "#SBATCH --gres=gpu:1\n"
 
@@ -32,8 +32,8 @@ with open(config_file, "r") as stream:
 
 
 
-for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B']: 
-# for scenario in ['COVID_A', 'COVID_B', 'COVID_C']: 
+# for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B']: 
+for scenario in ['COVID_A', 'COVID_B', 'COVID_C']: 
     for exp in config: 
         command = fixed_text + "#SBATCH --job-name="+exp+"\n#SBATCH --output="+exp+".out\n"
         command += "\nsource ../venvs/epipolicy/bin/activate\n"\
