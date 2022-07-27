@@ -44,3 +44,11 @@ test:
 plot: 
 	clear 
 	python3 plots.py 
+
+eval: 
+	clear 
+	python3 plot_intervention_plans.py --scenario jsons/SIRV_A.json --algo ppo 
+
+baselines: 
+	clear 
+	python3 baselines.py --scenario jsons/SIRV_A.json --baseline random 
