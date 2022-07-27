@@ -51,4 +51,4 @@ eval:
 
 baselines: 
 	clear 
-	python3 baselines.py --scenario jsons/SIRV_A.json --baseline random 
+	python3 baselines.py --scenario jsons/SIRV_A.json --baseline agg 
