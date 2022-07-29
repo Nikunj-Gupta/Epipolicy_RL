@@ -28,6 +28,3 @@ two:
     target_update_interval: '1'
     tau: '0.08'
     train_freq: 64
-{
-'log_std_init': -0.010728089958696452, 
-'net_arch': 'big'}

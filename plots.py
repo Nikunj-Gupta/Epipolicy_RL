@@ -1,9 +1,14 @@
-import os, glob, yaml, pprint, numpy as np, pandas as pd
+import os, glob, yaml, pprint, numpy as np, pandas as pd, json
 from webbrowser import get 
 from collections import defaultdict 
 import matplotlib.pyplot as plt 
-from tensorboard.backend.event_processing import event_accumulator
+from tensorboard.backend.event_processing import event_accumulator 
 
+
+# Epipolicy 
+from epipolicy_environment import EpiEnv 
+from stable_baselines3 import SAC, PPO
+from stable_baselines3.common.evaluation import evaluate_policy
 
 # SIZE_GUIDANCE = {
 #     'compressedHistograms': 500, 
@@ -58,38 +63,115 @@ def merge(logs):
     # print(vals) 
     val_means = np.array(vals).mean(axis=0)
     val_stds = np.array(vals).std(axis=0)
-    return val_means, val_stds, np.mean(val_means[MEAN_CUT:])/1e6, np.mean(val_stds[MEAN_CUT:])/1e6 
-    # return val_means, val_stds, np.mean(val_means), np.mean(val_stds) 
+    # return val_means, val_stds, np.mean(val_means[MEAN_CUT:])/1e6, np.mean(val_stds[MEAN_CUT:])/1e6 
+    return val_means, val_stds, np.mean(val_means), np.mean(val_stds) 
+def merge_baselines(logs): 
+    # pprint.pprint(logs) 
+    vals = [] 
+    for l in logs: 
+        vals.append(np.load(l)) 
+    vals = np.array(vals) 
+    val_means = np.array(vals).mean(axis=0)
+    val_stds = np.array(vals).std(axis=0)
+    val_means = np.take(val_means, list(range(0, len(val_means), 500)))
+    val_stds = np.take(val_stds, list(range(0, len(val_stds), 500)))
+    print(val_means.shape) 
+    print(val_stds.shape) 
+
+    # return val_means, val_stds, np.mean(val_means[MEAN_CUT:])/1e6, np.mean(val_stds[MEAN_CUT:])/1e6 
+    return val_means, val_stds, np.mean(val_means), np.mean(val_stds) 
 
 
-
-def plot(log_dir): 
+def plot(log_dir, only_baselines=False): 
 
     for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B', 'COVID_A', 'COVID_B', 'COVID_C']: 
         fig, ax = plt.subplots()
         fig.canvas.draw()
-        for algo in ['ppo', 'sac']: 
-            logs = glob.glob(os.path.join(log_dir, scenario, "*"+algo+"*", '*/arr.npy'), recursive=True) 
-            val_means, val_stds, mean_rew, mean_std = merge(logs) 
-            print(scenario, algo, "mean: ", mean_rew, "mean_std: ", mean_std) 
-            val_means = smooth(val_means, box_pts=SMOOTH)
-            val_stds = smooth(val_stds, box_pts=SMOOTH)
-            plt.plot(val_means[SMOOTH:][:-SMOOTH], label=algo)
-            plt.fill_between(np.arange(1, len(val_means)+1), 
-                    val_means - val_stds, 
-                    val_means + val_stds, 
-                    alpha=0.2) 
-            # break 
+        if not only_baselines: 
+            for algo in ['ppo', 'sac']: 
+                logs = glob.glob(os.path.join(log_dir, scenario, "*"+algo+"*", '*/arr.npy'), recursive=True) 
+                val_means, val_stds, mean_rew, mean_std = merge(logs) 
+                print(scenario, algo, "mean: ", mean_rew, "mean_std: ", mean_std) 
+                val_means = smooth(val_means, box_pts=SMOOTH)
+                val_stds = smooth(val_stds, box_pts=SMOOTH)
+                plt.plot(val_means[SMOOTH:][:-SMOOTH], label=algo)
+                plt.fill_between(np.arange(1, len(val_means)+1), 
+                        val_means - val_stds, 
+                        val_means + val_stds, 
+                        alpha=0.2) 
+                # break 
+        for algo in ['random', 'lax', 'agg']: 
+            logs = glob.glob(os.path.join(log_dir, scenario, algo+"*rew_arr*"), recursive=True) 
+            if algo=='random': 
+                val_means, val_stds, mean_rew, mean_std = merge_baselines(logs) 
+                print(scenario, algo, "mean: ", mean_rew, "mean_std: ", mean_std) 
+                val_means = smooth(val_means, box_pts=SMOOTH)
+                val_stds = smooth(val_stds, box_pts=SMOOTH)
+                plt.plot(val_means[SMOOTH:][:-SMOOTH], label=algo)
+                plt.fill_between(np.arange(1, len(val_means)+1), 
+                        val_means - val_stds, 
+                        val_means + val_stds, 
+                        alpha=0.2) 
+            else: 
+                vals = np.load(logs[0]) 
+                vals = np.take(vals, list(range(0, len(vals), 500)))
+                vals = smooth(vals, box_pts=SMOOTH)
+                plt.plot(vals[SMOOTH:][:-SMOOTH], label=algo)
+                # print(vals.shape, "mean: ", np.mean(val_means)) 
         ax.set_xticklabels([int(i*500) for i in ax.get_xticks().tolist()[1:]]) 
         plt.xlim([0, CUT])
         plt.title(scenario)
         plt.legend() 
-        # plt.show() 
-        plt.savefig('plots/'+scenario+'.png') 
-        plt.close() 
+        plt.show() 
+        # plt.savefig('plots/'+scenario+'.png') 
+        # plt.close() 
+        # break 
+        
+def evaluate(scenario, algo, model_path): 
+    env = EpiEnv(json.loads(open('jsons/'+scenario+'.json', "r").read())) 
+    # Load the trained agent
+    model = PPO.load(model_path, env=env) if algo=='ppo' else SAC.load(model_path, env=env)
+    print(model)
+    mean_reward, std_reward = evaluate_policy(model, model.get_env(), n_eval_episodes=10)
 
-            
+    print(mean_reward, std_reward) 
+    # Enjoy trained agent 
+    obs = env.reset()
+    action_arr = [] 
+    for _ in range(100):
+        action, _states = model.predict(obs, deterministic=True) 
+        action_arr.append(action) 
+        obs, rewards, dones, info = env.step(action)
+    action_arr = np.array(action_arr) 
+    for i in range(action_arr.shape[1]): 
+        plt.plot(action_arr[:,i], label='intervention '+str(i)) 
+
+    # plt.plot(action_arr[:,0], label='intervention 1') 
+    # plt.plot(action_arr[:,1], label='intervention 2') 
+    plt.title(scenario+'_'+algo)
+    plt.legend() 
+    # plt.show() 
+    print('plots/'+scenario+'_'+model_path.split('/')[-3]+'.png')
+    plt.savefig('plots/intervention_'+scenario+'_'+model_path.split('/')[-3]+'.png') 
+    plt.close() 
+    return mean_reward, std_reward 
+
+
+
+def plot_plans(log_dir): 
+    for scenario in ['SIRV_A', 'SIRV_B', 'SIR_A', 'SIR_B', 'COVID_A', 'COVID_B', 'COVID_C']: 
+        for algo in ['ppo', 'sac']: 
+            logs = glob.glob(os.path.join(log_dir, scenario, "*"+algo+"*", 'model_checkpoints*/*80000*.zip'), recursive=True) 
+            print(scenario, algo, logs)
+            for model in logs: 
+                evaluate(scenario, algo, model) 
+
+
 if __name__ == '__main__': 
     # save_npy('./summaries') 
     
-    plot('./summaries') 
+    plot('./summaries', only_baselines=True) 
+
+    # plot_plans('./summaries') 
+
+    # debug('./summaries') 
