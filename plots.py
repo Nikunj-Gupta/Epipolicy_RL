@@ -122,9 +122,9 @@ def plot(log_dir, only_baselines=False):
         plt.xlim([0, CUT])
         plt.title(scenario)
         plt.legend() 
-        plt.show() 
-        # plt.savefig('plots/'+scenario+'.png') 
-        # plt.close() 
+        # plt.show() 
+        plt.savefig('plots/'+scenario+'_only_baselines.png') 
+        plt.close() 
         # break 
         
 def evaluate(scenario, algo, model_path): 
