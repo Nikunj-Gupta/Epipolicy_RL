@@ -78,8 +78,8 @@ def merge_baselines(logs):
     print(val_means.shape) 
     print(val_stds.shape) 
 
-    # return val_means, val_stds, np.mean(val_means[MEAN_CUT:])/1e6, np.mean(val_stds[MEAN_CUT:])/1e6 
-    return val_means, val_stds, np.mean(val_means), np.mean(val_stds) 
+    return val_means, val_stds, np.mean(val_means[MEAN_CUT:])/1e6, np.mean(val_stds[MEAN_CUT:])/1e6 
+    # return val_means, val_stds, np.mean(val_means), np.mean(val_stds) 
 
 
 def plot(log_dir, only_baselines=False): 
@@ -123,7 +123,10 @@ def plot(log_dir, only_baselines=False):
         plt.title(scenario)
         plt.legend() 
         # plt.show() 
-        plt.savefig('plots/'+scenario+'_only_baselines.png') 
+        if only_baselines:
+            plt.savefig('plots/'+scenario+'_only_baselines.png') 
+        else: 
+            plt.savefig('plots/'+scenario+'.png') 
         plt.close() 
         # break 
         
