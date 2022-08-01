@@ -69,12 +69,14 @@ def merge_baselines(logs):
     # pprint.pprint(logs) 
     vals = [] 
     for l in logs: 
-        vals.append(np.load(l)) 
+        x = np.load(l) 
+        x = np.add.reduceat(x, np.arange(0, len(x), 365))[:CUT]
+        vals.append(x) 
     vals = np.array(vals) 
     val_means = np.array(vals).mean(axis=0)
     val_stds = np.array(vals).std(axis=0)
-    val_means = np.take(val_means, list(range(0, len(val_means), 500)))
-    val_stds = np.take(val_stds, list(range(0, len(val_stds), 500)))
+    # val_means = np.take(val_means, list(range(0, len(val_means), 500)))
+    # val_stds = np.take(val_stds, list(range(0, len(val_stds), 500)))
     print(val_means.shape) 
     print(val_stds.shape) 
 
@@ -114,7 +116,8 @@ def plot(log_dir, only_baselines=False):
                         alpha=0.2) 
             else: 
                 vals = np.load(logs[0]) 
-                vals = np.take(vals, list(range(0, len(vals), 500)))
+                # vals = np.take(vals, list(range(0, len(vals), 500)))
+                vals = np.add.reduceat(vals, np.arange(0, len(vals), 365))[:CUT]
                 vals = smooth(vals, box_pts=SMOOTH)
                 plt.plot(vals[SMOOTH:][:-SMOOTH], label=algo)
                 # print(vals.shape, "mean: ", np.mean(val_means)) 
