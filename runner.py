@@ -82,7 +82,7 @@ if args.algo == 'sac':
         sde_sample_freq=-1, 
         use_sde_at_warmup=False, 
         tensorboard_log='/'.join(['summaries', args.scenario.split('/')[-1].split('.')[0], args.exp]), 
-        create_eval_env=False, 
+        create_eval_env=env, 
         policy_kwargs=dict(
             activation_fn=torch.nn.ReLU, 
             net_arch=[int(config['first_hidden_size']), int(config['second_hidden_size'])] 
@@ -112,7 +112,7 @@ elif args.algo == "ppo":
         sde_sample_freq=-1, 
         target_kl=None, 
         tensorboard_log='/'.join(['summaries', args.scenario.split('/')[-1].split('.')[0], args.exp]), 
-        create_eval_env=False, 
+        create_eval_env=env, 
         policy_kwargs=dict(
             activation_fn=torch.nn.ReLU, 
             net_arch=[int(config['first_hidden_size']), int(config['second_hidden_size'])] 
@@ -123,9 +123,23 @@ elif args.algo == "ppo":
         _init_setup_model=True
     )
 
+# model.learn(
+#     total_timesteps=config['total_timesteps'], 
+#     log_interval=4,
+#     callback=CheckpointCallback(
+#         save_freq=config['total_timesteps']/10, 
+#         save_path='/'.join([
+#             'summaries', 
+#             args.scenario.split('/')[-1].split('.')[0], 
+#             args.exp, 
+#             'model_checkpoints_'+str(args.algo)
+#         ]) 
+#     )
+# )
+
 model.learn(
+
     total_timesteps=config['total_timesteps'], 
-    log_interval=4,
     callback=CheckpointCallback(
         save_freq=config['total_timesteps']/10, 
         save_path='/'.join([
@@ -134,5 +148,8 @@ model.learn(
             args.exp, 
             'model_checkpoints_'+str(args.algo)
         ]) 
-    )
+    ), 
+    eval_env=env,
+    eval_freq=25*52, # train for 25 years before evaluation 
+    n_eval_episodes=1*52, # evaluate for 1 year 
 )

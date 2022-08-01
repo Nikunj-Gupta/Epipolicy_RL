@@ -10,4 +10,4 @@ source ../venvs/epipolicy/bin/activate
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
-time python3 runner.py  --exp ppo_new_rs_586 --config configs/ppo.yaml --scenario jsons/SIRV_A.json --algo ppo
+time python3 runner.py  --exp ppo_new_rs_586 --config configs/ppo.yaml --scenario jsons/SIR_B.json --algo ppo

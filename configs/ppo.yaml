@@ -1,4 +1,4 @@
-ppo_rs_115:
+ppo_new_rs_202:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -10,10 +10,10 @@ ppo_rs_115:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 115
+  seed: 202
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_175:
+ppo_new_rs_348:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -25,10 +25,10 @@ ppo_rs_175:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 175
+  seed: 348
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_230:
+ppo_new_rs_426:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -40,10 +40,10 @@ ppo_rs_230:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 230
+  seed: 426
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_246:
+ppo_new_rs_45:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -55,10 +55,10 @@ ppo_rs_246:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 246
+  seed: 45
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_249:
+ppo_new_rs_463:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -70,10 +70,10 @@ ppo_rs_249:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 249
+  seed: 463
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_262:
+ppo_new_rs_484:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -85,10 +85,10 @@ ppo_rs_262:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 262
+  seed: 484
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_601:
+ppo_new_rs_586:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -100,10 +100,10 @@ ppo_rs_601:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 601
+  seed: 586
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_711:
+ppo_new_rs_665:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -115,10 +115,10 @@ ppo_rs_711:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 711
+  seed: 665
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_794:
+ppo_new_rs_905:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -130,10 +130,10 @@ ppo_rs_794:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 794
+  seed: 905
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
-ppo_rs_931:
+ppo_new_rs_92:
   batch_size: 8
   clip_range: 0.2
   ent_coef: 5.335150728756469e-08
@@ -145,6 +145,6 @@ ppo_rs_931:
   n_epochs: 1
   n_steps: 128
   second_hidden_size: 256
-  seed: 931
+  seed: 92
   total_timesteps: 100000
   vf_coef: 0.9741699902198256
